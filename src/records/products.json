@@ -1,0 +1,132 @@
+[
+    {
+        "product_id": 1,
+        "product_name": "IPhone 2",
+        "price": 277,
+        "purchase_quantity": 2,
+        "details": {
+            "ram": "4 GB",
+            "battery": "5000 mah",
+            "processor": "A15 Chip",
+            "screenSize": "5.5 inch",
+            "os": "Mac 19"
+        } 
+    },
+    {
+        "product_id": 2,
+        "product_name": "IPhone 3",
+        "price": 46,
+        "purchase_quantity": 4,
+        "details": {
+            "ram": "8 GB",
+            "battery": "5000 mah",
+            "processor": "Media tek",
+            "screenSize": "6.0 inch",
+            "os": "Mac 20"
+        }
+    },
+    {
+        "product_id": 3,
+        "product_name": "IPhone 4",
+        "price": 840,
+        "purchase_quantity": 3,
+        "details": {
+            "ram": "3 GB",
+            "battery": "3000 mah",
+            "processor": "Media tek",
+            "screenSize": "4.0 inch",
+            "os": "Mac 5"
+        }
+    },
+    {
+        "product_id": 4,
+        "product_name": "IPhone 5",
+        "price": 153,
+        "purchase_quantity": 7,
+        "details": {
+            "ram": "2 GB",
+            "battery": "4000 mah",
+            "processor": "Media tek",
+            "screenSize": "5.0 inch",
+            "os": "Mac 6"
+        }
+    },
+    {
+        "product_id": 5,
+        "product_name": "IPhone 6",
+        "price": 862,
+        "purchase_quantity": 1,
+        "details": {
+            "ram": "1 GB",
+            "battery": "4000 mah",
+            "processor": "Media tek",
+            "screenSize": "6.0 inch",
+            "os": "Mac 7"
+        }
+    },
+    {
+        "product_id": 6,
+        "product_name": "IPhone 7",
+        "price": 551,
+        "purchase_quantity": 6,
+        "details": {
+            "ram": "2 GB",
+            "battery": "2000 mah",
+            "processor": "Media tek",
+            "screenSize": "7.0 inch",
+            "os": "Mac 8"
+        }
+    },
+    {
+        "product_id": 7,
+        "product_name": "IPhone 8",
+        "price": 615,
+        "purchase_quantity": 5,
+        "details": {
+            "ram": "2 GB",
+            "battery": "2000 mah",
+            "processor": "Media tek",
+            "screenSize": "8.0 inch",
+            "os": "Mac 9"
+        }
+    },
+    {
+        "product_id": 8,
+        "product_name": "IPhone 9",
+        "price": 747,
+        "purchase_quantity": 3,
+        "details": {
+            "ram": "8 GB",
+            "battery": "2000 mah",
+            "processor": "Media tek",
+            "screenSize": "8.0 inch",
+            "os": "Mac 10"
+        }
+    },
+    {
+        "product_id": 9,
+        "product_name": "IPhone 12",
+        "price": 916,
+        "purchase_quantity": 2,
+        "details": {
+            "ram": "16 GB",
+            "battery": "8000 mah",
+            "processor": "Media tek",
+            "screenSize": "8.0 inch",
+            "os": "Mac 11"
+        }
+    },
+    {
+        "product_id": 10,
+        "product_name": "IPhone 13",
+        "price": 530,
+        "purchase_quantity": 1,
+        "details": {
+            "ram": "32 GB",
+            "battery": "10000 mah",
+            "processor": "Media tek",
+            "screenSize": "9.0 inch",
+            "os": "Mac 12"
+        }
+    }
+]

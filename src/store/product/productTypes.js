@@ -1,0 +1,3 @@
+export const CHANGE_LAYOUT_VIEW = "CHANGE_LAYOUT_VIEW";
+export const ADD_TO_CART = "ADD_TO_CART";
+export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
