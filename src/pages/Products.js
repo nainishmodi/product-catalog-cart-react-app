@@ -3,13 +3,20 @@ import products from '../records/products.json';
 import inventory from '../records/inventory.json';
 import { changeLayout, addProduct, removeFromCart } from '../store/product/productActions';
 import { useState } from 'react';
-import Comparison from '../components/Comparison';
+import ProductComparison from '../components/ProductComparison';
 
-const Product = () => {
+//Functional component
+const Products = () => {
+    //Get layout view from the store based onn user preference 
+    //By default grid is selected
     const layOutState = useSelector(state => state.product.currentLayout);
+    //Get carts details from the store which added/update by user
     const carts = useSelector(state => state.product.carts);
+    //Get total price of the all added products from the store 
     const totalPrice = useSelector(state => state.product.totalPrice);
+    //Local state to maintain products for comparison
     const [comparisonProducts, setComparisonProducts] = useState([]);
+    //Local state for Show/Hide Product comparison details component
     const [hideShowCompare, setHideShowCompare] = useState(false);
 
     const dispatch = useDispatch();
@@ -21,9 +28,10 @@ const Product = () => {
     };
 
     //Fn to add Comparison product more then 2 products
-    const compare = (product) => {
-        if(comparisonProducts.length+1 > 3) return alert('You can compare only 3 products');
+    const onCompare = (product) => {
+        if(comparisonProducts.length + 1 > 3) return alert('You can compare only 3 products');
         setComparisonProducts(state => {
+            //Prevent duplicate product for comparison
             return [...new Set([...state, product.product_id])];
         });
     };
@@ -34,6 +42,7 @@ const Product = () => {
         if(cartProduct) {
             const purchasedQty = cartProduct.purchase_quantity;
             const cartQty = cartProduct.qty;
+            //If particular product has limited purchased qty and we have to show error message.
             if(cartQty+1 > purchasedQty) {
                document.getElementById('error'+product.product_id).innerHTML = 'Max limit is '+purchasedQty;
             } 
@@ -84,7 +93,8 @@ const Product = () => {
                                     {carts.length}
                                 </span>
                             </button>
-                            {(comparisonProducts.length > 1) && <button type="button" className="btn btn-light btn-sm float-end" onClick={doCompare}>Compare selected products</button>}&nbsp;&nbsp;&nbsp;
+                            <button type="button" disabled={(comparisonProducts.length > 1) ? false : true} className="btn btn-light btn-sm float-end" onClick={doCompare}>Compare selected products</button>
+                            &nbsp;&nbsp;&nbsp;
                         </div>
                     </div>
                 </div>
@@ -128,11 +138,11 @@ const Product = () => {
                                             </tbody>
                                         </table>
                                         <td>
-                                            <button type="button" className="btn btn-sm btn-secondary" onClick={() => compare(product)}>Compare</button>&nbsp;&nbsp;
+                                            <button type="button" className="btn btn-sm btn-secondary" onClick={() => onCompare(product)}>Compare</button>&nbsp;&nbsp;
                                             <button type="button" className="btn btn-sm btn-primary" onClick={() => addToCart(product)}>Add to cart</button>&nbsp;&nbsp;
                                             {isInCart && <button type="button" className="btn btn-sm btn-danger" onClick={() => removeProductFromCart(product.product_id)}>Remove from cart</button>}
-                                            <p id={'error'+ product.product_id} className="text-danger"></p>
-                                        {(inventory_qty.available_qty <= 3) && <p className="text-warning">Hurry...! Only {inventory_qty.available_qty} items left</p>}
+                                            {isInCart && <p id={'error'+ product.product_id} className="text-danger"></p>}
+                                            {(inventory_qty.available_qty <= 3) && <p className="text-warning"><strong>Hurry...Up! Only {inventory_qty.available_qty} items left.</strong></p>}
                                         </td>
                                     </tr>
                                 )
@@ -176,10 +186,11 @@ const Product = () => {
                                                 </table>
                                                 <button type="button" className="btn btn-primary btn-sm" onClick={() => addToCart(product)}><i className="fa fa-cart-plus mr-2"></i> Add to cart</button>
                                                 &nbsp;&nbsp;&nbsp;
-                                                <button type="button" className="btn btn-sm btn-secondary" onClick={() => compare(product)}>Compare</button>&nbsp;&nbsp;
-                                                {isInCart && <button type="button" className="btn btn-sm btn-danger" onClick={() => removeProductFromCart(product.product_id)}>Remove from cart</button>}
-                                                <p id={'error'+ product.product_id} className="text-danger"></p>
-                                                {(inventory_qty.available_qty <= 3) && <p className="text-warning">Hurry...! Only {inventory_qty.available_qty} items left</p>}
+                                                <button type="button" className="btn btn-sm btn-secondary" onClick={() => onCompare(product)}>Compare</button>&nbsp;&nbsp;
+                                                {isInCart && <button type="button" className="btn btn-sm btn-danger" onClick={() => removeProductFromCart(product.product_id)}>Remove from cart</button>}<br/>
+                                                <br/>
+                                                {isInCart && <p id={'error'+ product.product_id} className="text-danger"></p>}
+                                                {(inventory_qty.available_qty <= 3) && <p className="text-warning"><strong>Hurry...Up! Only {inventory_qty.available_qty} items left.</strong></p>}
                                             </div>
                                         </div>
                                     </div>
@@ -191,11 +202,11 @@ const Product = () => {
                 </div>
             :
                 <div>
-                    <Comparison products={products} comparisonProducts={comparisonProducts} removeFromComparison={removeFromComparison}/>
+                    <ProductComparison products={products} comparisonProducts={comparisonProducts} removeFromComparison={removeFromComparison}/>
                 </div>
             }
         </>
     )
 }
 
-export default Product;
+export default Products;

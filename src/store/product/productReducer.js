@@ -19,6 +19,13 @@ function loadStateFromLocalStorage() {
     catch(e){}
 };
 
+//Fn to calculate price all items whoch are already in the cart.
+function calculateTotalPrice(lists) {
+    return lists.reduce((a,c) => {
+        return a + c.price;
+    }, 0)
+};
+
 const initialState = loadStateFromLocalStorage() || {
     currentLayout: "grid",
     carts: [],
@@ -27,36 +34,34 @@ const initialState = loadStateFromLocalStorage() || {
 };
 
 //Form builder reducer fn.
-const productDetailsReducer = (state = initialState, action) => {
+const productsReducer = (state = initialState, action) => {
     switch (action.type) {
         case CHANGE_LAYOUT_VIEW:
-            const newState = {
+            const layoutState = {
                 ...state,
                 currentLayout: action.payload
             };
             //Saving data to the local storage after save to the store
-            saveStateToLocalAStorage(newState);
-            return newState;
+            saveStateToLocalAStorage(layoutState);
+            return layoutState;
         case ADD_TO_CART:
-            const newCart = [...state.carts];
+            const newCarts = [...state.carts];
             let cart_product = action.payload;
-            const idx = newCart.findIndex(n => n.product_id === action.payload.product_id);
+            const idx = newCarts.findIndex(n => n.product_id === action.payload.product_id);
             //if already added product then we are updating the qty and price
             if(idx >= 0) {
-                newCart[idx].qty += 1;
-                newCart[idx].price += cart_product.price;
+                newCarts[idx].qty += 1;
+                newCarts[idx].price += cart_product.price;
             } else {
                 cart_product = {...cart_product, qty: 1}
-                newCart.push(cart_product);
+                newCarts.push(cart_product);
             }
             //Calculate cart price
-            const totalPrice = newCart.reduce((a,c) => {
-                return a + c.price;
-            }, 0)
+            const totalPrice = calculateTotalPrice(newCarts);
 
             const cartState = {
                 ...state,
-                carts: newCart,
+                carts: newCarts,
                 totalPrice
             };
             //Saving data to the local storage after save to the store
@@ -64,24 +69,24 @@ const productDetailsReducer = (state = initialState, action) => {
             return cartState;
 
         case REMOVE_FROM_CART:
-            let removeCart = [...state.carts];
+            let _carts = [...state.carts];
             let productId = action.payload;
             
-            const index = removeCart.findIndex(n => n.product_id === productId);
+            const index = _carts.findIndex(n => n.product_id === productId);
             //If same product with multiple qty then we update the cart
-            if(index >= 0 && removeCart[index].qty > 1) {
-                removeCart[index].qty -= 1;
-                removeCart[index].price -= removeCart[index].price;
+            if(index >= 0 && _carts[index].qty > 1) {
+                const _price = _carts[index].price / _carts[index].qty;
+                _carts[index].qty -= 1;
+                _carts[index].price = _price;
             } else {
-                removeCart.splice(index, 1);
+                _carts.splice(index, 1);
             }
-            const _totalPrice = removeCart.reduce((a,c) => {
-                return a + c.price;
-            }, 0);
+
+            const _totalPrice = calculateTotalPrice(_carts)
             
             const removedState = {
                 ...state,
-                carts: removeCart,
+                carts: _carts,
                 totalPrice: _totalPrice
             };
             //Saving data to the local storage after save to the store
@@ -92,4 +97,4 @@ const productDetailsReducer = (state = initialState, action) => {
     }
 };
 
-export default productDetailsReducer;
+export default productsReducer;
