@@ -38,15 +38,18 @@ const Product = () => {
                document.getElementById('error'+product.product_id).innerHTML = 'Max limit is '+purchasedQty;
             } 
             else {
+                //Add product to the cart and redux store
                 dispatch(addProduct(product));
             }
         } else {
+            //Add product to the cart and redux store
             dispatch(addProduct(product));
         }
     };
 
     //Fn to remove products from the cart
     const removeProductFromCart = (id) => {
+        //Remove product to the cart and redux store
         dispatch(removeFromCart(id))
     };
 
@@ -109,7 +112,7 @@ const Product = () => {
                                 return (
                                     <tr key={product.product_id}>
                                         <td>{product.product_id}</td>
-                                        <td className="text-success">{product.product_name}</td>
+                                        <td className="text-success"><h5>{product.product_name}</h5></td>
                                         <td>{product.price}</td>
                                         <table className="table">
                                             <tbody>
