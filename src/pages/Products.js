@@ -149,8 +149,10 @@ const Product = () => {
                                                     {Object.keys(product.details).map((p, i) => {
                                                         return (
                                                             <tr key={i}>
-                                                                <td>{p.toUpperCase()} : {product.details[p]}</td>
-                                                                </tr>
+                                                                <td>
+                                                                   <span className="text-muted"> {p.toUpperCase()} </span> : {product.details[p]}
+                                                                </td>
+                                                            </tr>
                                                         )
                                                     })}
                                                     </tbody>
