@@ -88,7 +88,7 @@ const Product = () => {
             </div>
             {!hideShowCompare ?
                 <div className="text-center">
-                    <h2>Product details</h2>
+                    <h2>Products</h2>
                     {(layOutState === 'table') ?
                     <table className="table">
                         <thead>
@@ -96,6 +96,7 @@ const Product = () => {
                             <th>Sr. no</th>
                             <th>Product Name</th>
                             <th>Product Price</th>
+                            <th>Details</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -110,6 +111,19 @@ const Product = () => {
                                         <td>{product.product_id}</td>
                                         <td className="text-success">{product.product_name}</td>
                                         <td>{product.price}</td>
+                                        <table className="table">
+                                            <tbody>
+                                                {Object.keys(product.details).map((p, i) => {
+                                                    return (
+                                                        <tr key={i}>
+                                                            <td>
+                                                               <span className="text-muted">{p.toUpperCase()}</span> : {product.details[p]}
+                                                            </td>
+                                                        </tr>
+                                                    )
+                                                })}
+                                            </tbody>
+                                        </table>
                                         <td>
                                             <button type="button" className="btn btn-sm btn-secondary" onClick={() => compare(product)}>Compare</button>&nbsp;&nbsp;
                                             <button type="button" className="btn btn-sm btn-primary" onClick={() => addToCart(product)}>Add to cart</button>&nbsp;&nbsp;
