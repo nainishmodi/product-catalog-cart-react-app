@@ -135,9 +135,9 @@ const Product = () => {
                                         <div className="card">
                                             <div className="card-body bg-light text-center">
                                                 <div className="mb-2">
-                                                    <h6 className="font-weight-semibold mb-2"> <a href="#" className="text-success mb-2" data-abc="true">{product.product_name}</a> </h6>
+                                                    <h3 className="font-weight-semibold mb-2"> <a href="#" className="text-success mb-2" data-abc="true">{product.product_name}</a> </h3>
                                                 </div>
-                                                <h3 className="mb-0 font-weight-semibold">₹ {product.price}</h3>
+                                                <h6 className="mb-0 font-weight-semibold">₹ {product.price}</h6>
                                                 <br/>
                                                 <div> <i className="fa fa-star star"></i> 
                                                 <i className="fa fa-star star"></i> <i className="fa fa-star star"></i> <i className="fa fa-star star"></i> </div>
