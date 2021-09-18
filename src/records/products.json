@@ -1,8 +1,8 @@
 [
     {
         "product_id": 1,
-        "product_name": "IPhone 2",
-        "price": 277,
+        "product_name": "IPhone 6s",
+        "price": 16000,
         "purchase_quantity": 2,
         "details": {
             "ram": "4 GB",
@@ -14,99 +14,99 @@
     },
     {
         "product_id": 2,
-        "product_name": "IPhone 3",
-        "price": 46,
+        "product_name": "Nokia 6600",
+        "price": 9999,
         "purchase_quantity": 4,
         "details": {
-            "ram": "8 GB",
-            "battery": "5000 mah",
+            "ram": "6 GB",
+            "battery": "4000 mah",
             "processor": "Media tek",
             "screenSize": "6.0 inch",
-            "os": "Mac 20"
+            "os": "Android 10"
         }
     },
     {
         "product_id": 3,
-        "product_name": "IPhone 4",
-        "price": 840,
+        "product_name": "Samsung S10",
+        "price": 15000,
         "purchase_quantity": 3,
         "details": {
-            "ram": "3 GB",
-            "battery": "3000 mah",
-            "processor": "Media tek",
+            "ram": "8 GB",
+            "battery": "7000 mah",
+            "processor": "Helio tek",
             "screenSize": "4.0 inch",
-            "os": "Mac 5"
+            "os": "Android 11"
         }
     },
     {
         "product_id": 4,
-        "product_name": "IPhone 5",
-        "price": 153,
+        "product_name": "Micromax A2s",
+        "price": 8999,
         "purchase_quantity": 7,
         "details": {
-            "ram": "2 GB",
-            "battery": "4000 mah",
+            "ram": "4 GB",
+            "battery": "8000 mah",
             "processor": "Media tek",
-            "screenSize": "5.0 inch",
-            "os": "Mac 6"
+            "screenSize": "6.0 inch",
+            "os": "Android 9"
         }
     },
     {
         "product_id": 5,
-        "product_name": "IPhone 6",
-        "price": 862,
+        "product_name": "Realme 7",
+        "price": 7999,
         "purchase_quantity": 1,
         "details": {
             "ram": "1 GB",
             "battery": "4000 mah",
             "processor": "Media tek",
             "screenSize": "6.0 inch",
-            "os": "Mac 7"
+            "os": "Android 7"
         }
     },
     {
         "product_id": 6,
-        "product_name": "IPhone 7",
-        "price": 551,
+        "product_name": "Samsung Galaxy S20",
+        "price": 40000,
         "purchase_quantity": 6,
         "details": {
-            "ram": "2 GB",
+            "ram": "8 GB",
             "battery": "2000 mah",
-            "processor": "Media tek",
-            "screenSize": "7.0 inch",
-            "os": "Mac 8"
+            "processor": "Quantam tek",
+            "screenSize": "5.0 inch",
+            "os": "Android 8"
         }
     },
     {
         "product_id": 7,
-        "product_name": "IPhone 8",
-        "price": 615,
+        "product_name": "Redmi 10s",
+        "price": 9879,
         "purchase_quantity": 5,
         "details": {
-            "ram": "2 GB",
-            "battery": "2000 mah",
-            "processor": "Media tek",
-            "screenSize": "8.0 inch",
-            "os": "Mac 9"
+            "ram": "3 GB",
+            "battery": "4000 mah",
+            "processor": "Helio tek",
+            "screenSize": "5.0 inch",
+            "os": "Android 11"
         }
     },
     {
         "product_id": 8,
-        "product_name": "IPhone 9",
-        "price": 747,
+        "product_name": "Lava 7",
+        "price": 8500,
         "purchase_quantity": 3,
         "details": {
             "ram": "8 GB",
             "battery": "2000 mah",
             "processor": "Media tek",
-            "screenSize": "8.0 inch",
-            "os": "Mac 10"
+            "screenSize": "6.1 inch",
+            "os": "Android 11"
         }
     },
     {
         "product_id": 9,
         "product_name": "IPhone 12",
-        "price": 916,
+        "price": 35000,
         "purchase_quantity": 2,
         "details": {
             "ram": "16 GB",
@@ -118,15 +118,15 @@
     },
     {
         "product_id": 10,
-        "product_name": "IPhone 13",
-        "price": 530,
+        "product_name": "Micromax",
+        "price": 6999,
         "purchase_quantity": 1,
         "details": {
-            "ram": "32 GB",
-            "battery": "10000 mah",
+            "ram": "2 GB",
+            "battery": "3000 mah",
             "processor": "Media tek",
-            "screenSize": "9.0 inch",
-            "os": "Mac 12"
+            "screenSize": "4.0 inch",
+            "os": "Android 8"
         }
     }
 ]
