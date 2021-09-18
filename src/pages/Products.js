@@ -139,8 +139,22 @@ const Product = () => {
                                                 </div>
                                                 <h6 className="mb-0 font-weight-semibold">₹ {product.price}</h6>
                                                 <br/>
-                                                <div> <i className="fa fa-star star"></i> 
-                                                <i className="fa fa-star star"></i> <i className="fa fa-star star"></i> <i className="fa fa-star star"></i> </div>
+                                                <table className="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Details</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    {Object.keys(product.details).map((p, i) => {
+                                                        return (
+                                                            <tr key={i}>
+                                                                <td>{p.toUpperCase()} : {product.details[p]}</td>
+                                                                </tr>
+                                                        )
+                                                    })}
+                                                    </tbody>
+                                                </table>
                                                 <button type="button" className="btn btn-primary btn-sm" onClick={() => addToCart(product)}><i className="fa fa-cart-plus mr-2"></i> Add to cart</button>
                                                 &nbsp;&nbsp;&nbsp;
                                                 <button type="button" className="btn btn-sm btn-secondary" onClick={() => compare(product)}>Compare</button>&nbsp;&nbsp;
