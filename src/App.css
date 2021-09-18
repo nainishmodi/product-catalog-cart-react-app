@@ -15,6 +15,9 @@ body {
 .mb-50 {
   margin-bottom: 50px
 }
+.pd-25 {
+  padding: 15px;
+}
 
 .card {
   position: relative;

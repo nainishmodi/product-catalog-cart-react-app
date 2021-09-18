@@ -38,13 +38,17 @@ const Products = () => {
 
     //Fn to add products in the cart
     const addToCart = (product) => {
-        const cartProduct = carts.find(c => c.product_id === product.product_id);
+        const newProductId = product.product_id;
+        const cartProduct = carts.find(c => c.product_id === newProductId);
         if(cartProduct) {
             const purchasedQty = cartProduct.purchase_quantity;
             const cartQty = cartProduct.qty;
+            const { available_qty } = inventory.find(i => i.product_id === newProductId);
+            //if there is limited avail qty and user tries to enter add to cart
+            if((cartQty + 1) > available_qty) return alert(`Sorry! Only ${available_qty} available.`);
             //If particular product has limited purchased qty and we have to show error message.
-            if(cartQty+1 > purchasedQty) {
-               document.getElementById('error'+product.product_id).innerHTML = 'Max limit is '+purchasedQty;
+            if((cartQty + 1) > purchasedQty) {
+               document.getElementById('error'+newProductId).innerHTML = 'Max limit is '+purchasedQty;
             } 
             else {
                 //Add product to the cart and redux store
@@ -121,9 +125,13 @@ const Products = () => {
 
                                 return (
                                     <tr key={product.product_id}>
-                                        <td>{product.product_id}</td>
-                                        <td className="text-success"><h5>{product.product_name}</h5></td>
-                                        <td>{product.price}</td>
+                                        <td>
+                                            <div className="card-img-actions"> 
+                                                <img src={product.product_img} style={{height: '100px', width: '100px'}} className="card-img img-fluid" width="100" height="100" alt="Image" /> 
+                                            </div>
+                                        </td>
+                                        <td className="text-success"><h4 className="pd-25">{product.product_name}</h4></td>
+                                        <td><h5 className="pd-25">₹&nbsp;{product.price}</h5></td>
                                         <table className="table">
                                             <tbody>
                                                 {Object.keys(product.details).map((p, i) => {
@@ -160,6 +168,9 @@ const Products = () => {
                                 return (
                                     <div key={product.product_id} className="col-md-4 mt-2">
                                         <div className="card">
+                                            <div className="card-body">
+                                                <div className="card-img-actions"> <img src={product.product_img} className="card-img img-fluid" width="96" height="350" alt="" /> </div>
+                                            </div>
                                             <div className="card-body bg-light text-center">
                                                 <div className="mb-2">
                                                     <h3 className="font-weight-semibold mb-2"> <a href="#" className="text-success mb-2" data-abc="true">{product.product_name}</a> </h3>
